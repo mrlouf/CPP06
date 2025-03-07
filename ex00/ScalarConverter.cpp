@@ -6,7 +6,7 @@
 /*   By: nponchon <nponchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:20:59 by nponchon          #+#    #+#             */
-/*   Updated: 2025/03/07 14:43:45 by nponchon         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:33:14 by nponchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,56 +117,66 @@ void ScalarConverter::convert(const std::string &literal) {
 	// std::cout << isFloat(literal) << std::endl;
 	// std::cout << isDouble(literal) << std::endl;
 
-	// char
-	try {
-		if (isChar(literal))
-			std::cout << "char: " << literal << std::endl;
-		else {
+	enum Type { CHAR, INT, FLOAT, DOUBLE, UNKNOWN };
+	Type type = UNKNOWN;
+
+	if (isChar(literal)) {
+		type = CHAR;
+	} else if (isInt(literal)) {
+		type = INT;
+	} else if (isFloat(literal)) {
+		type = FLOAT;
+	} else if (isDouble(literal)) {
+		type = DOUBLE;
+	}
+
+	switch (type) {
+		case CHAR: {
 			char c = toChar(literal);
-			std::cout << "char: " << static_cast<char>(c) << std::endl;
+			if (isprint(c))
+				std::cout << "char: '" << c << "'" << std::endl;
+			else
+				std::cout << "char: non displayable" << std::endl;
+			std::cout << "int: " << static_cast<int>(c) << std::endl;
+			std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
+			std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
+			break;
 		}
-	}
-	catch (const std::exception &e) {
-		std::cout << "char: " << e.what() << std::endl;
-	}
-
-	// int
-	try {
-		if (isInt(literal))
-			std::cout << "int: " << literal << std::endl;
-		else {
+		case INT: {
 			int i = toInt(literal);
+			if (isprint(static_cast<char>(i)))
+				std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
+			else
+				std::cout << "char: non displayable" << std::endl;	
 			std::cout << "int: " << i << std::endl;
+			std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
+			std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
+			break;
 		}
-	}
-	catch (const std::exception &e) {
-		std::cout << "int: " << e.what() << std::endl;
-	}
-
-	// float
-	try {
-		if (isFloat(literal))
-			std::cout << "float: " << literal << std::endl;
-		else {
+		case FLOAT: {
 			float f = toFloat(literal);
-			std::cout << std::setprecision(1) << "float: " << f << "f" << std::endl;
+			if (isprint(static_cast<char>(f)))
+				std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
+			else
+				std::cout << "char: non displayable" << std::endl;	
+			std::cout << "int: " << static_cast<int>(f) << std::endl;
+			std::cout << "float: " << f << "f" << std::endl;
+			std::cout << "double: " << static_cast<double>(f) << std::endl;
+			break;
 		}
-	}
-	catch (const std::exception &e) {
-		std::cout << "float: " << e.what() << std::endl;
-	}
-
-	// double
-	try {
-		if (isDouble(literal))
-			std::cout << "double: " << literal << std::endl;
-		else {
+		case DOUBLE: {
 			double d = toDouble(literal);
-			std::cout << std::setprecision(1) << "double: " << d << std::endl;
+			if (isprint(static_cast<char>(d)))
+				std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+			else
+				std::cout << "char: non displayable" << std::endl;	
+			std::cout << "int: " << static_cast<int>(d) << std::endl;
+			std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+			std::cout << "double: " << d << std::endl;
+			break;
 		}
-	}
-	catch (const std::exception &e) {
-		std::cout << "double: " << e.what() << std::endl;
+		default:
+			throw ImpossibleConversionException();
 	}
 }
 
@@ -175,5 +185,5 @@ const char* ScalarConverter::NonDisplayableException::what() const throw() {
 }
 
 const char* ScalarConverter::ImpossibleConversionException::what() const throw() {
-	return "impossible";
+	return "conversion impossible";
 }

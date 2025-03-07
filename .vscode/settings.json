@@ -49,6 +49,7 @@
 		"bitset": "cpp",
 		"cstring": "cpp",
 		"ctime": "cpp",
-		"regex": "cpp"
+		"regex": "cpp",
+		"iomanip": "cpp"
 	}
 }
