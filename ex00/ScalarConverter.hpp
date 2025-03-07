@@ -6,7 +6,7 @@
 /*   By: nponchon <nponchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:12:35 by nponchon          #+#    #+#             */
-/*   Updated: 2025/03/06 15:43:53 by nponchon         ###   ########.fr       */
+/*   Updated: 2025/03/07 14:22:57 by nponchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@
 # include <iostream>
 # include <exception>
 # include <cctype>
+# include <cstdlib>
+# include <cerrno>
+# include <cmath>
 # include <sstream>
+# include <iomanip>
 
 class ScalarConverter {
 	private:
