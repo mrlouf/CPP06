@@ -6,7 +6,7 @@
 /*   By: nponchon <nponchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:12:35 by nponchon          #+#    #+#             */
-/*   Updated: 2025/03/07 14:22:57 by nponchon         ###   ########.fr       */
+/*   Updated: 2025/03/08 20:20:32 by nponchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <cmath>
 # include <sstream>
 # include <iomanip>
+# include <limits>
 
 class ScalarConverter {
 	private:
@@ -49,6 +50,11 @@ class ScalarConverter {
 	};
 
 	class ImpossibleConversionException : public std::exception {
+		public:
+			virtual const char *what() const throw();
+	};
+
+	class InvalidTypeException : public std::exception {
 		public:
 			virtual const char *what() const throw();
 	};
