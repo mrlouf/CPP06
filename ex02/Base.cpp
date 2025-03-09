@@ -6,7 +6,7 @@
 /*   By: nponchon <nponchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 16:08:12 by nponchon          #+#    #+#             */
-/*   Updated: 2025/03/09 17:20:57 by nponchon         ###   ########.fr       */
+/*   Updated: 2025/03/09 17:29:02 by nponchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ Base *generate(void) {
 
 void identify(Base* p) {
 
+	// dynamic_cast returns a null pointer in case of failed cast
 	if (dynamic_cast<A *>(p))
 		std::cout << "A" << std::endl;
 	else if (dynamic_cast<B *>(p))
@@ -47,6 +48,7 @@ void identify(Base* p) {
 
 void identify(Base& p) {
 
+	// failed cast cannot return null reference, so use try-catch
 	try {
 		dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
