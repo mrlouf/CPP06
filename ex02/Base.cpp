@@ -6,7 +6,7 @@
 /*   By: nponchon <nponchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 16:08:12 by nponchon          #+#    #+#             */
-/*   Updated: 2025/03/09 17:29:02 by nponchon         ###   ########.fr       */
+/*   Updated: 2025/03/09 18:31:07 by nponchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void identify(Base* p) {
 
 void identify(Base& p) {
 
-	// failed cast cannot return null reference, so use try-catch
+	// failed cast cannot return null reference, so use try method
+	// to catch potential bad cast
 	try {
 		dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
