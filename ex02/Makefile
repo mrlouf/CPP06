@@ -14,7 +14,10 @@ RM			= rm -fr
 SRC 		= 	main.cpp				\
 				Base.cpp
 
-HEADERS		=	Base.hpp
+HEADERS		=	Base.hpp				\
+				A.hpp					\
+				B.hpp					\
+				C.hpp
 
 OBJDIR		= .obj
 OBJS		= $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))

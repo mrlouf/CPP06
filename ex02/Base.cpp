@@ -6,7 +6,7 @@
 /*   By: nponchon <nponchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 16:08:12 by nponchon          #+#    #+#             */
-/*   Updated: 2025/03/10 16:25:57 by nponchon         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:41:17 by nponchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void identify(Base* p) {
 	else if (dynamic_cast<C *>(p))
 		std::cout << "C" << std::endl;
 	else
-		std::cout << "Unidentified pointer, this should not happen" << std::endl;
+		std::cout << "Unidentified pointer, not a Base class object" << std::endl;
 }
 
 void identify(Base& p) {
@@ -74,6 +74,6 @@ void identify(Base& p) {
 	catch (const std::exception &e) {
 		;
 	}
-	std::cout << "Unidentified pointer, this should not happen" << std::endl;
+	std::cout << "Unidentified reference, not a Base class object" << std::endl;
 
 }
