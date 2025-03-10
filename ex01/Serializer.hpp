@@ -6,7 +6,7 @@
 /*   By: nponchon <nponchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 14:11:32 by nponchon          #+#    #+#             */
-/*   Updated: 2025/03/09 15:01:05 by nponchon         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:11:28 by nponchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ class Serializer {
 
 		static Data* deserialize(uintptr_t raw);
 		// It takes an unsigned integer parameter and converts it to a pointer to Data.
+	
+	class NullPointerException : public std::exception {
+		public:
+			virtual const char *what() const throw();
+	};
 };
 
 #endif

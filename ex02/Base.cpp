@@ -6,7 +6,7 @@
 /*   By: nponchon <nponchon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 16:08:12 by nponchon          #+#    #+#             */
-/*   Updated: 2025/03/09 18:31:07 by nponchon         ###   ########.fr       */
+/*   Updated: 2025/03/10 16:25:57 by nponchon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Base::~Base() {}
 
 Base *generate(void) {
 
-	srand(time(0));
+	//srand(time(0));
 	int i = rand() % 3;
 
 	std::cout << "Class generated: " << static_cast<char>(i + 65) << std::endl;

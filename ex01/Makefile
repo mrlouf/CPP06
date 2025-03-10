@@ -12,8 +12,7 @@ RM			= rm -fr
 # -=-=-=-=-    FILES -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 
 SRC 		= 	main.cpp				\
-				Serializer.cpp			\
-				Data.cpp
+				Serializer.cpp
 
 HEADERS		=	Serializer.hpp			\
 				Data.hpp
